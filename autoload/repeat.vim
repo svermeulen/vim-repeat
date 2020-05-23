@@ -161,7 +161,7 @@ endif
 
 augroup repeatPlugin
     autocmd!
-    autocmd BufLeave,BufWritePre,BufReadPre * let g:repeat_tick = (g:repeat_tick == b:changedtick || g:repeat_tick == 0) ? 0 : -1
+    autocmd BufLeave,BufWritePre,BufUnload * let g:repeat_tick = (g:repeat_tick == b:changedtick || g:repeat_tick == 0) ? 0 : -1
     autocmd BufEnter,BufWritePost * if g:repeat_tick == 0|let g:repeat_tick = b:changedtick|endif
 augroup END
 
